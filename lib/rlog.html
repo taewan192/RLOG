@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RLOG에서 로스트아크 캐릭터 검색과 랭킹을 한눈에. 즐겨찾기와 주간 체크리스트까지.">
+  <meta name="theme-color" content="#050505"><title>RLOG — 로스트아크 캐릭터 검색</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/armory.css">
+  <script src="/config.js" defer></script><script src="/gold.js" defer></script><script src="/armory.js" defer></script><script src="/live.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="/#home" aria-label="RLOG 홈"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 19V5h7a4 4 0 0 1 0 8H6m7 0 5 6" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>RLOG</a>
+    <form id="search-form" class="search-form header-search" role="search"><span class="search-icon" aria-hidden="true">⌕</span><label for="character" class="sr-only">캐릭터 이름</label><input id="character" name="character" placeholder="캐릭터명 검색..." maxlength="100" autocomplete="off" required><button type="submit" aria-label="캐릭터 검색">↗</button></form>
+    <div class="header-actions"><button class="demo-label" id="connection-label" data-help="api"><i></i> 연결 확인 중</button><button class="icon-button" id="theme-toggle" aria-label="라이트 모드로 전환">☀</button><button class="help-button" data-help="about">이용 안내 <span>↗</span></button></div>
+  </div>
+  <nav class="nav" aria-label="주요 메뉴"><div class="nav-inner">
+    <a href="/#home" data-view="home" class="active">홈</a>
+    <a href="/#multi" data-view="multi">다중 검색</a>
+    <a href="/#guilds" data-view="guilds">길드</a>
+    <a href="/#ranks" data-view="ranks">순위</a>
+    <a href="/#statistics" data-view="statistics">통계</a>
+    <a href="/#market" data-view="market">시세</a>
+    <a href="/#ranking" data-view="ranking">캐릭터 랭킹</a>
+    <a href="/#stats" data-view="stats">클래스 통계</a>
+    <a href="/#favorites" data-view="favorites">즐겨찾기 <span id="fav-count">0</span></a>
+    <a href="/#checklist" data-view="checklist">주간 체크리스트</a>
+    <a href="/#hall" data-view="hall">명예의 전당</a>
+    <a href="/#feedback" data-view="feedback">건의 / 제보</a>
+  </div></nav>
+</header>
+<main id="main" class="container">
+
+  <div class="history" id="history" hidden></div>
+  <aside class="ad-slot ad-wide" data-ad="top" aria-label="상단 광고"><span class="ad-tag">ADVERTISEMENT</span><div class="ad-placeholder"><span class="ad-symbol">▧</span><span>당신의 브랜드가 모험가를 만나는 곳</span><small>상단 배너 광고 · 970 × 90</small></div></aside>
+  <section id="home-view" class="view">
+    <div class="section-heading"><div><span class="eyebrow">ADVENTURER'S HUB</span><h2>오늘의 아크라시아</h2></div><span class="date-label" id="today-label"></span></div>
+    <div class="dashboard">
+      <div class="left-column">
+        <section class="panel notice-panel"><div class="panel-head"><h3><span class="heading-icon">☷</span> 로스트아크 공지사항</h3><a href="https://lostark.game.onstove.com/News/Notice/List" target="_blank" rel="noopener noreferrer" aria-label="공식 공지사항 더보기">↗</a></div><div id="notices-list" class="loading-state">공식 공지를 불러오는 중입니다.</div><div class="panel-foot"><span id="notices-source">공식 소식</span><span id="notices-updated"></span></div></section>
+        <section class="panel event-panel"><div class="panel-head"><h3><span class="heading-icon">◇</span> 진행 중인 이벤트</h3><a href="https://lostark.game.onstove.com/News/Event/Now" target="_blank" rel="noopener noreferrer">전체 ↗</a></div><div id="events-list" class="loading-state">공식 이벤트를 불러오는 중입니다.</div><div class="panel-foot"><span id="events-source">로스트아크 공식 이벤트</span></div></section>
+      </div>
+      <div class="center-column">
+        <section class="panel"><div class="panel-head"><h3><span class="heading-icon">↗</span> 주목할 캐릭터</h3><a href="/#ranking">전체 랭킹 →</a></div><div class="panel-subtitle">RLOG에서 최근 조회된 캐릭터 <span class="sample-badge">공식 데이터</span></div><div id="featured-list"></div></section>
+        <section class="panel schedule-panel"><div class="panel-head"><h3><span class="heading-icon">▦</span> 주간 일정표</h3><span class="sample-badge">공식 캘린더</span></div><div class="week-tabs" id="week-tabs" role="tablist" aria-label="플레이 플랜 요일"></div><div id="schedule-content"></div><div class="panel-foot">모든 일정은 한국 시간 기준입니다.<a href="/#checklist">체크리스트 →</a></div></section>
+      </div>
+      <div class="right-column">
+        <section class="panel popular-panel"><div class="panel-head"><h3><span class="heading-icon">⌕</span> 최근 인기 검색</h3><span class="sample-badge">RLOG 기준</span></div><div id="popular-list"></div><div class="panel-foot">RLOG에서 조회된 캐릭터의 검색 횟수 기준입니다.</div></section>
+        <aside class="ad-slot ad-square" data-ad="sidebar" aria-label="사이드 광고"><span class="ad-tag">ADVERTISEMENT</span><div class="ad-placeholder"><span class="ad-symbol">▧</span><strong>모험의 사이,<br>당신의 브랜드.</strong><small>사이드 배너 광고 · 300 × 250</small></div></aside>
+        <section class="status-panel"><div><span class="status-dot"></span><strong>서비스 안내</strong></div><p id="connection-detail">공식 데이터 연결 상태를 확인 중입니다.</p><button data-help="about">자세히 보기 →</button></section>
+      </div>
+    </div>
+  </section>
+  <section id="character-view" class="view panel view-panel character-page" hidden aria-labelledby="character-page-title">
+    <div class="section-heading"><div><span class="eyebrow">CHARACTER PROFILE</span><h2 id="character-page-title">캐릭터 정보</h2><p class="muted" id="character-query-name"></p></div><a class="text-button" href="/">홈으로 돌아가기 →</a></div>
+    <div id="character-body" aria-live="polite"></div>
+  </section>
+  <section id="compare-view" class="view panel view-panel comparison-page" hidden aria-label="캐릭터 비교">
+    <div id="search-results" aria-live="polite"></div>
+  </section>
+  <section id="ranking-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">CHARACTER RANKING</span><h2>캐릭터 랭킹</h2></div><span class="sample-badge">조회된 캐릭터 기준</span></div><div class="filters"><label>서버 <select id="server-filter"><option value="all">전체 서버</option><option>루페온</option><option>카단</option><option>실리안</option><option>아만</option></select></label><label>정렬 <select id="sort-filter"><option value="level">아이템 레벨순</option><option value="power">전투력순</option></select></label></div><div class="table-scroll"><table><thead><tr><th>순위</th><th>캐릭터</th><th>서버</th><th>클래스</th><th>아이템 레벨</th><th>즐겨찾기</th></tr></thead><tbody id="ranking-table"></tbody></table></div></section>
+  <section id="stats-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">CLASS INSIGHTS</span><h2>클래스 통계</h2></div><span class="sample-badge">RLOG 집계</span></div><p class="muted">RLOG에서 조회된 실제 캐릭터의 클래스 분포입니다. 게임 전체 통계는 아닙니다.</p><div id="stats-bars"></div></section>
+  <section id="favorites-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">YOUR COLLECTION</span><h2>즐겨찾는 캐릭터</h2></div></div><p class="muted">즐겨찾기 목록은 이 브라우저에 저장됩니다. 조회한 정보를 함께 보관하며, 캐릭터 이름을 누르면 최신 정보를 불러옵니다.</p><div id="favorites-list"></div></section>
+  <section id="checklist-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">WEEKLY ROUTINE</span><h2>나의 주간 체크리스트</h2></div><button class="text-button" id="reset-tasks">완료 표시 초기화</button></div><p class="muted">이번 주의 목표를 체크해 보세요. 기록은 이 브라우저에 저장되며, 직접 초기화할 수 있습니다.</p><div class="progress-label"><span id="task-progress"></span><span>MY WEEKLY GOAL</span></div><div class="progress-track"><div id="task-bar"></div></div><div id="task-list"></div><form id="task-form" class="task-form"><label class="sr-only" for="new-task">새 할 일</label><input id="new-task" placeholder="나만의 할 일 추가" maxlength="80" required><button type="submit">추가 +</button></form></section>
+  <section id="guilds-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">GUILD DIRECTORY</span><h2>길드</h2></div><span class="sample-badge">조회된 소속 캐릭터 기준</span></div><p class="muted">캐릭터를 조회하면 실제 소속 길드가 여기에 등록됩니다. 표시되는 인원은 RLOG에 조회된 인원이며 전체 길드원 수와 다를 수 있습니다.</p><form id="guild-form" class="task-form"><label class="sr-only" for="guild-query">길드 이름</label><input id="guild-query" placeholder="길드 이름으로 찾기" maxlength="40"><button type="submit">길드 검색</button></form><div id="guilds-list" class="data-section"></div><section id="guild-directory-details" aria-label="길드 구성원 상세 정보" class="guild-directory-details" hidden></section></section>
+  <section id="ranks-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">RLOG RANKINGS</span><h2>순위</h2></div><span class="sample-badge">조회된 캐릭터 기준</span></div><p class="muted">아이템 레벨과 전투력으로 비교하는 RLOG 캐릭터 순위입니다. 전체 로스트아크 순위가 아닙니다.</p><div class="chip-tabs"><button class="selected" data-rank-sort="level">아이템 레벨</button><button data-rank-sort="power">전투력</button></div><div id="ranks-list"></div></section>
+  <section id="statistics-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">RLOG DATA OVERVIEW</span><h2>통계</h2></div><span class="sample-badge">조회된 캐릭터 기준</span></div><div class="summary-grid" id="summary-stats"></div><h3>서버 분포</h3><div id="server-bars"></div><h3>클래스별 평균 아이템 레벨</h3><div id="class-averages"></div></section>
+  <section id="market-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">MARKET WATCH</span><h2>시세</h2></div><span class="sample-badge">공식 거래소</span></div><p class="muted">아이템 이름과 분류로 공식 거래소 시세를 조회합니다. 표시 가격은 판매 묶음 단위이며 거래소 등록 시점에 따라 달라질 수 있습니다.</p><form id="market-form" class="market-form"><label>분류<select id="market-category" required><option value="" disabled selected>분류 불러오는 중...</option></select></label><label>아이템 이름<input id="market-query" placeholder="예: 운명의 돌파석" maxlength="50" required></label><label>정렬<select id="market-sort"><option value="CURRENT_MIN_PRICE">최저가순</option><option value="RECENT_PRICE">최근 거래가순</option><option value="YDAY_AVG_PRICE">전일 평균가순</option></select></label><button class="primary-button" type="submit">시세 조회</button></form><div id="market-results" class="data-section"></div></section>
+  <section id="hall-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">HALL OF FAME</span><h2>명예의 전당</h2></div><span class="sample-badge">RLOG 조회 캐릭터 기준</span></div><p class="muted">조회된 캐릭터 중 아이템 레벨이 높은 모험가들의 기록입니다.</p><div id="hall-list" class="hall-grid"></div></section>
+  <section id="feedback-view" class="view panel view-panel" hidden><div class="section-heading"><div><span class="eyebrow">MAKE RLOG BETTER</span><h2>건의 / 제보</h2></div></div><p class="muted">사이트 개선 의견과 데이터 오류를 알려 주세요. 접수 내역은 서버에 저장되며 본인만 조회할 수 있습니다.</p><form id="feedback-form" class="feedback-form"><label>유형<select name="category"><option>건의</option><option>버그 제보</option><option>데이터 오류</option><option>기타</option></select></label><label>제목<input name="title" placeholder="제목을 입력하세요" minlength="2" maxlength="100" required></label><label>내용<textarea name="body" placeholder="문제가 발생한 화면과 내용을 자세히 적어 주세요. 비밀번호나 API 키는 적지 마세요." minlength="5" maxlength="3000" rows="5" required></textarea></label><button class="primary-button" type="submit">접수하기</button></form><div id="feedback-message" role="status"></div><h3 class="data-section">내 접수 내역</h3><div id="feedback-list"></div></section>
+  <aside class="ad-slot ad-wide bottom-ad" data-ad="bottom" aria-label="하단 광고"><span class="ad-tag">ADVERTISEMENT</span><div class="ad-placeholder"><span class="ad-symbol">▧</span><span>다음 모험을 함께할 파트너</span><small>하단 반응형 배너 광고</small></div></aside>
+</main>
+<footer class="footer container"><div class="footer-top"><a class="brand" href="/#home">RLOG</a><div><button data-help="about">사이트 소개</button><button data-help="privacy">개인정보 안내</button><button data-help="ads">광고 안내</button><a href="https://developer-lostark.game.onstove.com/" target="_blank" rel="noopener noreferrer">공식 Open API ↗</a></div></div><div class="footer-bottom"><span>© 2026 RLOG. Adventure, in perspective.</span><span>로스트아크 공식 서비스와는 별개의 팬 사이트입니다.</span></div></footer>
+<dialog id="detail-dialog"><div class="dialog-top"><span class="eyebrow" id="dialog-label">RLOG</span><button id="close-dialog" class="icon-button" aria-label="닫기">×</button></div><div id="dialog-body"></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>
+

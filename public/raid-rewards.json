@@ -1,0 +1,355 @@
+{
+  "checkedAt": "2026-10-12",
+  "minimumLevel": 1600,
+  "scope": "검증된 1600레벨 이상 레이드 · 카멘 4관문 및 보상 미검증 모드 제외",
+  "sources": [
+    {
+      "title": "공식 골드 획득 제한 · 캐릭터 3종 / 원정대 6명",
+      "url": "https://lostark.game.onstove.com/GameGuide/Pages/콘텐츠%20현황%20확인"
+    },
+    {
+      "title": "공식 입장 조건 · 카제로스 레이드",
+      "url": "https://lostark.game.onstove.com/GameGuide/Pages/카제로스%20레이드"
+    },
+    {
+      "title": "공식 입장 조건 · 그림자 레이드",
+      "url": "https://lostark.game.onstove.com/GameGuide/Pages/그림자%20레이드"
+    },
+    {
+      "title": "2026-06-24 공식 골드 보상 조정",
+      "url": "https://lostark.game.onstove.com/News/Notice/Views/13472"
+    },
+    {
+      "title": "2026-04-22 공식 귀속 골드 조정",
+      "url": "https://lostark.game.onstove.com/News/Notice/Views/13416"
+    },
+    {
+      "title": "2025-12-10 공식 T3 귀속 및 보상 조정",
+      "url": "https://lostark.game.onstove.com/News/Notice/Views/13307"
+    },
+    {
+      "title": "2025-06-25 공식 상아탑 · 카멘 보상",
+      "url": "https://lostark.game.onstove.com/News/Notice/Views/13148"
+    },
+    {
+      "title": "로밸 · 최신 레이드 보상표 (성당 / 그림자 레이드 총액 대조)",
+      "url": "https://www.lobal.kr/tips/raid/raid-reward"
+    },
+    {
+      "title": "세르카 · 지평의 성당 상세 보상표",
+      "url": "https://warmhearttea.tistory.com/128"
+    },
+    {
+      "title": "벨가르딘 상세 보상표",
+      "url": "https://warmhearttea.tistory.com/140"
+    }
+  ],
+  "raids": [
+    {
+      "id": "voldis",
+      "name": "상아탑",
+      "variants": [
+        {
+          "id": "normal-1600",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1600,
+          "gold": 5200,
+          "bound": 5200,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1620",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1620,
+          "gold": 7200,
+          "bound": 7200,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "thaemine",
+      "name": "카멘 (1–3관문)",
+      "variants": [
+        {
+          "id": "normal-1610",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1610,
+          "gold": 6400,
+          "bound": 6400,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1630",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1630,
+          "gold": 8000,
+          "bound": 8000,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "echidna",
+      "name": "서막 · 에키드나",
+      "variants": [
+        {
+          "id": "normal-1620",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1620,
+          "gold": 6100,
+          "bound": 6100,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1640",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1640,
+          "gold": 7200,
+          "bound": 3600,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "behemoth",
+      "name": "베히모스",
+      "variants": [
+        {
+          "id": "normal-1640",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1640,
+          "gold": 7200,
+          "bound": 3600,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "aegir",
+      "name": "1막 · 에기르",
+      "variants": [
+        {
+          "id": "normal-1660",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1660,
+          "gold": 11500,
+          "bound": 5750,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1680",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1680,
+          "gold": 18000,
+          "bound": 9000,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "brelshaza",
+      "name": "2막 · 아브렐슈드",
+      "variants": [
+        {
+          "id": "normal-1670",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1670,
+          "gold": 16500,
+          "bound": 8250,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1690",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1690,
+          "gold": 23000,
+          "bound": 11500,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "mordum",
+      "name": "3막 · 모르둠",
+      "variants": [
+        {
+          "id": "normal-1680",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1680,
+          "gold": 21000,
+          "bound": 10500,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1700",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1700,
+          "gold": 27000,
+          "bound": 13500,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "armoche",
+      "name": "4막 · 아르모체",
+      "variants": [
+        {
+          "id": "normal-1700",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1700,
+          "gold": 27000,
+          "bound": 13500,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1720",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1720,
+          "gold": 38000,
+          "bound": 0,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "kazeros",
+      "name": "종막 · 카제로스",
+      "variants": [
+        {
+          "id": "normal-1710",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1710,
+          "gold": 32000,
+          "bound": 16000,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1730",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1730,
+          "gold": 48000,
+          "bound": 0,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "serka",
+      "name": "세르카",
+      "variants": [
+        {
+          "id": "normal-1710",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1710,
+          "gold": 32000,
+          "bound": 16000,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1730",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1730,
+          "gold": 44000,
+          "bound": 0,
+          "goldUntil": null
+        },
+        {
+          "id": "nightmare-1740",
+          "mode": "nightmare",
+          "label": "나이트메어",
+          "level": 1740,
+          "gold": 54000,
+          "bound": 0,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "cathedral",
+      "name": "지평의 성당",
+      "variants": [
+        {
+          "id": "normal-1700",
+          "mode": "normal",
+          "label": "1단계",
+          "level": 1700,
+          "gold": 30000,
+          "bound": 30000,
+          "goldUntil": null
+        },
+        {
+          "id": "normal-1720",
+          "mode": "normal",
+          "label": "2단계",
+          "level": 1720,
+          "gold": 40000,
+          "bound": 40000,
+          "goldUntil": null
+        },
+        {
+          "id": "normal-1750",
+          "mode": "normal",
+          "label": "3단계",
+          "level": 1750,
+          "gold": 50000,
+          "bound": 50000,
+          "goldUntil": null
+        }
+      ]
+    },
+    {
+      "id": "belgardin",
+      "name": "벨가르딘",
+      "variants": [
+        {
+          "id": "normal-1750",
+          "mode": "normal",
+          "label": "노말",
+          "level": 1750,
+          "gold": 50000,
+          "bound": 0,
+          "goldUntil": null
+        },
+        {
+          "id": "hard-1770",
+          "mode": "hard",
+          "label": "하드",
+          "level": 1770,
+          "gold": 62000,
+          "bound": 0,
+          "goldUntil": null
+        },
+        {
+          "id": "nightmare-1780",
+          "mode": "nightmare",
+          "label": "나이트메어",
+          "level": 1780,
+          "gold": 75000,
+          "bound": 0,
+          "goldUntil": null
+        }
+      ]
+    }
+  ]
+}
